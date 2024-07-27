@@ -7,6 +7,10 @@ prueba tecnica Martin Rivera Bernal
  el controlador donde estará la logica de los end-points para las acciones restfull (GET,POST,PUT,PATCH,DELETE), se encuentra en el directorio 
  app/http/Controllers/tiendaApiController.php
 
+ cada eendpoint ya están preparados para consumirse dependiendo del verbo http: 
+ 
+ http://localhost/api/products
+
 -SEGURIDAD:
  Los endpoints están protegidos por JWT (Json web tokens), para crear un json web token basta con ir a http://localhost/api/generate-token, el token tendrá una hora 
  de caducidad despues de esto hay que generar otro.
