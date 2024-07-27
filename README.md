@@ -8,7 +8,7 @@ prueba tecnica Martin Rivera Bernal
  app/http/Controllers/tiendaApiController.php
 
 -SEGURIDAD:
- Los endpoints están protegidos por JWT (Json web tokens), para crear un json wen token basta con ir a http://localhost/api/generate-token, el token tendrá una ora 
+ Los endpoints están protegidos por JWT (Json web tokens), para crear un json web token basta con ir a http://localhost/api/generate-token, el token tendrá una ora 
  de caducidad despues de esto hay que generar otro.
 
 -INSTALACION DE LA APLICACION:
