@@ -28,8 +28,7 @@ class tiendaApiController extends Controller
         {
 
             $token = $request->header('Authorization');
-            $token = str_replace('Bearer ', '', $token);
-
+            
             // Obtén la clave secreta desde tus variables de entorno
             $secretKey = env('FIREBASE_JWT_SECRET');
 
