@@ -14,7 +14,13 @@ class tiendaApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    
+    /*
+       Constructor para aplicar la seguridad a los endpoints de la aplicación.
+       
+       la clave ultrasecreta para autentificar el token, se almacena en las variables de entorno de la aplicación
+       en el archivo .env en la variable FIREBASE_JWT_SECRE
+    */
     public function __construct()
     {
 
@@ -47,13 +53,15 @@ class tiendaApiController extends Controller
             catch(\Exception $e)
             {
                 // Maneja errores de token inválido
-                //echo 'Caught exception: ',  $e->getMessage(), "\n";
+                
                 return response()->json(['message' => 'Token invalido'], 401);
             }
 
             return $next($request);
         });
     }
+
+    /* Función que obtiene y lista tosa la colección de los productos - METODO GET*/
     public function index()
     {
         $productos = Productos::get();
@@ -73,7 +81,7 @@ class tiendaApiController extends Controller
 
         return response()
             ->json($formattedData);
-        //dd("rizos");
+        
         
     }
 
@@ -94,6 +102,8 @@ class tiendaApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    /* Resgistra un nuevo producto en el inventario - METODO POST */
     public function store(Request $request)
     {
         try
@@ -161,6 +171,8 @@ class tiendaApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /* Actualiza o edita un producto - METODO PUT */
     public function update(Request $request, $id)
     {
 
@@ -204,6 +216,9 @@ class tiendaApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /* Elimina un producto, aqui aplique la baja fisica, pero en ambientes reales debería ser
+       una baja logica para dejar evidencia para un log de sucesos - METODO DELETE*/
     public function destroy($id)
     {
         try
